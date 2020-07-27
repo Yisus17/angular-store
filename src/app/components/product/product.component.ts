@@ -10,15 +10,16 @@ export class ProductComponent implements OnInit {
 
   @Input() product: Product;
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
-  
-  
+
+  today = new Date();
+ 
   constructor() { }
 
   ngOnInit(): void {
   }
 
   addCart(): void {
-    console.log("Añadiendo el item");
+    console.log('Aï¿½adiendo el item');
     this.productClicked.emit(this.product.id);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from "./models/products/product.model";
+import { Product } from './models/products/product.model';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,7 @@ import { Product } from "./models/products/product.model";
 })
 export class AppComponent {
   title = 'platzi-store';
+  power = 10;
 
   products: Product[] = [
     {
@@ -54,9 +55,8 @@ export class AppComponent {
     }
   ];
 
-  clickProduct(id:number){
-    console.log('Product'+id);
+  clickProduct(id: number): void{
+    console.log('Product' + id);
   }
-
 
 }
