@@ -1,4 +1,8 @@
+<h2>Yisus Store</h2>
 
-<div *ngFor= "let product of products">
-  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
+<div class="product-grid">
+  <app-product *ngFor="let product of products" 
+  (productClicked)="clickProduct($event)" 
+  [product]="product">
+  </app-product>
 </div>
