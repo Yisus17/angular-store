@@ -1,2 +1,4 @@
 
-<app-product></app-product>
+<div *ngFor= "let product of products">
+  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
+</div>
