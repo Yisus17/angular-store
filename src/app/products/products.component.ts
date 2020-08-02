@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/products/product.model';
+
+import { Product } from './../product.model';
 
 @Component({
   selector: 'app-products',
@@ -7,11 +8,6 @@ import { Product } from '../models/products/product.model';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   products: Product[] = [
     {
@@ -55,12 +51,17 @@ export class ProductsComponent implements OnInit {
       title: 'Stickers',
       price: 80000,
       description: 'bla bla bla bla bla'
-    }
+    },
   ];
 
-  clickProduct(id: number): void{
-    console.log('Product' + id);
+  constructor() { }
+
+  ngOnInit() {
   }
 
+  clickProduct(id: number) {
+    console.log('product');
+    console.log(id);
+  }
 
 }
