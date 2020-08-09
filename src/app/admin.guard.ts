@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AdminGuard implements CanActivate {
 
   canActivate(
-    next: ActivatedRouteSnapshot, 
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
