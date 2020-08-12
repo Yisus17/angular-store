@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Product } from './../../../core/models/product.model';
+import { ProductsService } from './../../../core/services/products/products.service'
 
 @Component({
   selector: 'app-products',
@@ -9,59 +10,38 @@ import { Product } from './../../../core/models/product.model';
 })
 export class ProductsComponent implements OnInit {
 
-  products: Product[] = [
-    {
-      id: '1',
-      image: 'assets/images/camiseta.png',
-      title: 'Camiseta',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '2',
-      image: 'assets/images/hoodie.png',
-      title: 'Hoodie',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '3',
-      image: 'assets/images/mug.png',
-      title: 'Mug',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '4',
-      image: 'assets/images/pin.png',
-      title: 'Pin',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '5',
-      image: 'assets/images/stickers1.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-    {
-      id: '6',
-      image: 'assets/images/stickers2.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla'
-    },
-  ];
+  products: Product[] = [];
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
+    this.fetchProducts();
   }
 
   clickProduct(id: number) {
     console.log('product');
     console.log(id);
+  }
+
+  fetchProducts() {
+    this.productsService.getAllProducts()
+      .subscribe(products => {
+        this.products = products;
+      });
+  }
+
+  createProduct() {
+    const newProduct: Product = {
+      id:'223',
+      title: 'Test desde angular',
+      image: 'https://s1.thcdn.com/productimg/1600/1600/11836648-1654634421137169.jpeg',
+      price: 100,
+      description: 'Katara Rules'
+    }
+    this.productsService.createProduct(newProduct)
+      .subscribe(product => {
+        console.log(product)
+      })
   }
 
 }
