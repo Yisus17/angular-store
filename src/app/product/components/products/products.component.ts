@@ -44,4 +44,17 @@ export class ProductsComponent implements OnInit {
       })
   }
 
+  updateProduct(){
+    const newProduct:Partial<Product>= {
+      id:'223',
+      title: 'Holiws',
+      price: 99,
+      description: 'Kataraa'
+    }
+    this.productsService.updateProduct(newProduct.id, newProduct)
+      .subscribe(product => {
+        console.log(product)
+      })
+  }
+
 }
